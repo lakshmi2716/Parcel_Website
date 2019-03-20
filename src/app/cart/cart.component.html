@@ -1,0 +1,151 @@
+<!--
+<mat-card class="matcard-style">
+  <mat-card-header>
+    <mat-icon>shopping_cart</mat-icon>
+    <mat-card-title>My Cart</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <ul *ngFor="let order of Orders">
+      <li class="list-group-item">
+        <h5>   <b> Order Id: {{order.id}} </b>  
+        <mat-icon (click) = "details(order.id)" style="cursor:pointer"> edit </mat-icon>
+        <mat-icon (click) = "remove(order.id)" style="cursor:pointer"> delete </mat-icon>
+        </h5>
+        <mat-grid-list cols="4" rowHeight="550">
+          <div class="tilestyle">
+            <mat-grid-tile rowspan="5" colspan="2" > 
+              <mat-card style ="width:90%;background-color:ghostwhite;font-family:Courgette;font-weight:900">
+                <mat-card-content>
+                  <table>
+                    <thead>
+                      <b>SENDER</b>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{{order.Suser}} </td>
+                      </tr>
+                      <tr>
+                        <td>{{order.Semail}}</td>
+                      </tr>
+                      <tr>
+                        <td> {{order.Smobile}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </mat-card-content>
+              </mat-card>
+            </mat-grid-tile>
+            <mat-grid-tile rowspan="5" colspan="2">
+              <mat-card   style ="width:90%;background-color:ghostwhite;font-family:Courgette;font-weight:900">
+                <mat-card-content>
+                  <table>
+                    <thead>
+                      <b>RECEIPENT</b>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{{order.Ruser}}</td>
+                      </tr>
+                      <tr>
+                        <td>{{order.lane.Daddress}} </td>
+                      </tr>
+                      <tr>
+                        <td> {{order.Smobile}} </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </mat-card-content>
+              </mat-card>
+            </mat-grid-tile>
+          </div>
+        </mat-grid-list>
+      </li>
+    </ul>
+  </mat-card-content>
+</mat-card> -->
+<mat-card class="matcard-style">
+  <mat-card-header>
+    <mat-icon>shopping_cart</mat-icon>
+    <mat-card-title>My Cart</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div *ngIf ="no_of_orders > 0; else emptycart"> 
+    <ul *ngFor="let order of Orders;let i = index">
+      <li class="list-group-item">
+        <div class="card-deck">
+          <div class="card">
+            <div class="card-header">
+              <h5>
+                <b> Order Id: {{order.id}} </b>
+                <mat-icon (click)="details(order.id)" style="cursor:pointer"> edit </mat-icon>
+                <mat-icon (click)="remove(order.id)" style="cursor:pointer"> delete </mat-icon>
+              </h5>
+            </div>
+            <div class="card-deck">
+              <div class="card">
+                <div class="card-body" style="background-color:ghostwhite;">
+                  <table style="background-color:ghostwhite;">
+                    <thead>
+                      <h6>
+                        <b> SENDER</b>
+                      </h6>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td> {{order.Suser | titlecase}} </td>
+                      </tr>
+                      <tr>
+                        <td> {{order.lane.Oaddress}} </td>
+                      </tr>
+                      <tr>
+                        <td> {{order.Smobile }} </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body" style="background-color:ghostwhite;">
+                  <table style="background-color:ghostwhite;">
+                    <thead>
+                      <h6>
+                        <b> RECEIVER </b>
+                      </h6>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td> {{order.Ruser | titlecase}} </td>
+                      </tr>
+                      <tr>
+                        <td> {{order.lane.Daddress }} </td>
+                      </tr>
+                      <tr>
+                        <td> {{order.Rmobile}} </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div class="row">
+        <div class="col-md">
+            <button type="submit" class="btn btn-primary btn-lg" 
+            style="margin-left:290px;background-color: #5824d1;border-color: #5824d1"
+            (click)="placeorder()">Place Order</button>
+        </div>
+      </div>
+  </div>
+  <ng-template #emptycart>
+      <div class="card">
+          <div class="card-body">
+                <b>     Cart is empty!! </b> 
+          </div>
+        </div>
+  </ng-template>
+         
+  </mat-card-content>
+</mat-card>

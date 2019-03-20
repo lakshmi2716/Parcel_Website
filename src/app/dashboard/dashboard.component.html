@@ -1,0 +1,135 @@
+
+ 
+  <div class="row">
+    <div class="col-md-5">
+      <table class="table ">
+        <thead>
+          <tr>
+            <th>Sender </th>
+            <th>Receiver </th>
+            <th>Pickup Date</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let order of Orders | filter : search" (click)="details(order.id)" class='clickable-row'>
+            <td> {{ order.Suser | titlecase }} </td>
+            <td> {{ order.Ruser | titlecase }} </td>
+            <td> {{ order.lane. pickup | date:'mediumDate' }} </td>
+          </tr>
+        </tbody>
+
+      </table>
+
+    </div>
+   
+    <div class="col-md-6">
+        <div class="container" >
+      <div *ngIf="detailvisible">
+        <div *ngIf="orderdetails">
+          <mat-card>
+            
+              <mat-card-title> Order id:{{orderdetails.id}} </mat-card-title>
+            
+            <mat-card-content>
+              <div class="container">
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <h6>Sender Address</h6>
+                                    <mat-divider> </mat-divider>
+                                    <table>
+                                      <tr>
+                                        <th> Name</th>
+                                        <td> {{orderdetails.Suser}}</td>
+                                      </tr>
+                                      <tr>
+                                        <th> Email </th>
+                                        <td> {{ orderdetails.Semail}}</td>
+                                      </tr>
+                                      <tr>
+                                        <th>Phone </th>
+                                        <td>{{orderdetails.Smobile}}</td>
+                                      </tr>
+                                      <tr>
+                                        <th>Pickup Point</th>
+                                        <td>{{orderdetails.Oaddress}} </td>
+                                      </tr>
+                                    </table>
+                                  </div>
+                                  <div class="col-md-5 ml-auto">
+                                    <h6>Receiver Address</h6>
+                                    <mat-divider></mat-divider>
+                                    <table>
+                                        <tr>
+                                            <th> Name</th>
+                                            <td> {{orderdetails.Ruser}}</td>
+                                          </tr>
+                                          <tr>
+                                            <th> Email </th>
+                                            <td> {{ orderdetails.Remail}}</td>
+                                          </tr>
+                                          <tr>
+                                            <th>Phone </th>
+                                            <td>{{orderdetails.Rmobile}}</td>
+                                          </tr>
+                                          <tr>
+                                            <th>Pickup Point</th>
+                                            <td>{{orderdetails.daddress}} </td>
+                                          </tr>
+                                    </table>
+                                  </div> 
+                                  </div>
+                                <div class= "row mt-3">
+                                    <div class = "col-md-5">
+                                        <h6>Package & Shipment details </h6>
+                                          <mat-divider></mat-divider>
+                                          <table>
+                                            <tr>
+                                                <th>Equipment</th>
+                                                <td>{{orderdetails.shipment.equipment}} </td>
+                                              </tr>
+                                              <tr>
+                                                  <th>Equipment Size</th>
+                                                  <td>{{orderdetails.shipment.size}} </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Commodity</th>
+                                                    <td>{{orderdetails.shipment.commodity}} </td>
+                                                  </tr>
+                                                  <tr>
+                                                      <th>Package Weight</th>
+                                                      <td>{{orderdetails.shipment.wgh}} </td>
+                                                    </tr>
+                                             </table>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <table style="margin-top:30px">
+                                          <tr>
+                                            <th>UOM</th>
+                                            <td> {{orderdetails.shipment.unit}}</td>
+                                          </tr>
+                                          <tr>
+                                            <th>Hazmant & Temperature Controlled</th>
+                                            <td> {{orderdetails.shipment.hazmat}}, {{orderdetails.shipment.temp}}</td>
+                                          </tr>
+                                          <tr>
+                                            <th> Pickup Date</th>
+                                            <td>{{ orderdetails.lane. pickup | date:'mediumDate' }}</td>
+                                          </tr>
+                                        </table>
+
+                                    </div>
+                                    
+                                </div>
+                </div>
+             
+              
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+ 

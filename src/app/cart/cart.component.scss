@@ -1,0 +1,32 @@
+
+
+ 
+.matcard-style{ 
+width: 60%;
+margin-left: 20%;
+margin-right: 25%;
+margin-top: 25px;
+padding-bottom: 5%;
+margin-bottom: 5%;
+}  
+
+
+ul{
+    margin-right: 40px;
+}
+
+table{
+  
+     font-family:Courgette;
+     font-weight:600;
+     font-size: 18px;
+}
+ 
+
+ ::ng-deep .mat-figure{
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    margin-left: 10px; 
+  } 
+
+ 

@@ -1,0 +1,208 @@
+<!-- Commenting out to design the page as responsive.Working one in desktop 
+<div class="bg">
+  <div class="formfield "> 
+    <form [formGroup]="OrdersForm">
+      <div class="container">
+        <mat-tab-group [(selectedIndex)]="tabservice.selectedIndex">
+          <mat-tab label="Contact Information">
+            <mat-card>
+              <mat-card-content>
+                <h5> Sender Contact Details </h5>
+                <div class="row">
+                  <div class="col-4">
+                    <mat-form-field apperance="standard">
+                      <input matInput placeholder="name" formControlName="Suser">
+                    </mat-form-field>
+                    <mat-error>
+                      <span *ngIf="OrdersForm.get('Suser').errors &&  
+                                          OrdersForm.get('Suser').touched ">
+                        Please enter First Name !!! </span>
+                    </mat-error>
+                  </div>
+                  <div class="col-4">
+                    <mat-form-field apperance="standard">
+                      <input matInput placeholder="email" formControlName="Semail">
+                    </mat-form-field>
+                    <mat-error>
+                      <span *ngIf=" OrdersForm.get('Semail').errors?.required && OrdersForm.get('Semail').touched ">
+                        Please enter Email ID !!! </span>
+                      <span *ngIf=" OrdersForm.get('Semail').errors?.email">
+                        Enter valid mail id !!! </span>
+                    </mat-error>
+                  </div>
+                  <div class="col-4">
+                    <mat-form-field apperance="standard">
+                      <input matInput placeholder="mobile" formControlName="Smobile">
+                    </mat-form-field>
+                    <mat-error>
+                      <span *ngIf="OrdersForm.get('Smobile').invalid && OrdersForm.get('Smobile').dirty">
+                        Please enter valid mobile number !!!</span>
+                    </mat-error>
+                  </div>
+                </div>
+                <h5> Recipient Contact Details </h5>
+                <div class="row">
+                  <div class="col-4">
+                    <mat-form-field apperance="standard">
+                      <input matInput placeholder="name" formControlName="Ruser">
+                    </mat-form-field>
+                    <mat-error>
+                      <span *ngIf="OrdersForm.get('Ruser').errors &&  
+                                    OrdersForm.get('Ruser').touched ">
+                        Please enter First Name !!! </span>
+                    </mat-error>
+                  </div>
+                  <div class="col-4">
+                    <mat-form-field apperance="standard">
+                      <input matInput placeholder="email" formControlName="Remail">
+                    </mat-form-field>
+                    <mat-error>
+                      <span *ngIf=" OrdersForm.get('Remail').errors?.required && OrdersForm.get('Remail').touched ">
+                        Please enter Email ID !!! </span>
+                      <span *ngIf=" OrdersForm.get('Remail').errors?.email">
+                        Enter valid mail id !!! </span>
+                    </mat-error>
+                  </div>
+                  <div class="col-4">
+                    <mat-form-field apperance="standard">
+                      <input matInput placeholder="mobile" formControlName="Rmobile">
+                    </mat-form-field>
+                    <mat-error>
+                      <span *ngIf="OrdersForm.get('Rmobile').invalid && OrdersForm.get('Rmobile').dirty">
+                        Please enter valid mobile number !!!</span>
+                    </mat-error>
+                  </div>
+                </div>
+                <div class="row">
+                  <input type="button" class="btn btn-primary button" (click)="change()" value=" Next ">
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </mat-tab>
+          <mat-tab label="Shipment Details">
+            <app-shipment [parentForm]="OrdersForm.get('shipment')"               ></app-shipment>
+            <br>
+          </mat-tab>
+          <mat-tab label="Lane  Info">
+            <app-lane [parentForm]="OrdersForm.get('lane')"></app-lane>
+            <br>
+            <br>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+      <div *ngIf="!enablesave">
+        <button type="submit" class="btn btn-primary btn-lg" style="margin-left:290px;background-color: #5824d1;border-color: #5824d1"
+          [disabled]="OrdersForm.pristine || !OrdersForm.valid " (click)="add(OrdersForm)">Add to Cart</button>
+      </div>
+      <div *ngIf="enablesave">
+        <button type="submit" class="btn btn-primary btn-lg" style="margin-left:290px;background-color: #5824d1;border-color: #5824d1"
+          [disabled]="OrdersForm.pristine || !OrdersForm.valid" (click)="save(OrdersForm.value)">Save</button>
+      </div> 
+    </form>
+  </div>
+  {{OrdersForm.value | json }} {{tabservice.selectedIndex }}
+</div> -->
+<div class="bg">
+  <div class="container-fluid">
+    <form [formGroup]="OrdersForm" class="form-style">
+      <mat-tab-group [(selectedIndex)]="tabservice.selectedIndex">
+        <mat-tab label="Contact Information">
+          <mat-card>
+            <mat-card-content>
+              <h5> Sender Contact Details </h5>
+              <div class="form-row form-inline ">
+                <div class="form-group col-md-4">
+                  <mat-form-field apperance="standard">
+                    <input matInput placeholder="name" formControlName="Suser">
+                  </mat-form-field>
+                  <mat-error>
+                    <span *ngIf="OrdersForm.get('Suser').errors &&  
+                            OrdersForm.get('Suser').touched ">
+                      Please enter First Name !!! </span>
+                  </mat-error>
+                </div>
+                <div class="form-group col-md-4">
+                  <mat-form-field apperance="standard">
+                    <input matInput placeholder="email" formControlName="Semail">
+                  </mat-form-field>
+                  <mat-error>
+                    <span *ngIf=" OrdersForm.get('Semail').errors?.required && OrdersForm.get('Semail').touched ">
+                      Please enter Email ID !!! </span>
+                    <span *ngIf=" OrdersForm.get('Semail').errors?.email">
+                      Enter valid mail id !!! </span>
+                  </mat-error>
+                </div>
+                <div class="form-group col-md-4">
+                  <mat-form-field apperance="standard">
+                    <input matInput placeholder="mobile" formControlName="Smobile">
+                  </mat-form-field>
+                  <mat-error>
+                    <span *ngIf="OrdersForm.get('Smobile').invalid && OrdersForm.get('Smobile').dirty">
+                      Please enter valid mobile number !!!</span>
+                  </mat-error>
+                </div>
+              </div>
+              <h5> Recipient Contact Details </h5>
+              <div class="form-row form-inline">
+                <div class="form-group col-md-4">
+                  <mat-form-field apperance="standard">
+                    <input matInput placeholder="name" formControlName="Ruser">
+                  </mat-form-field>
+                  <mat-error>
+                    <span *ngIf="OrdersForm.get('Ruser').errors &&  
+                              OrdersForm.get('Ruser').touched ">
+                      Please enter First Name !!! </span>
+                  </mat-error>
+                </div>
+                <div class="form-group col-md-4">
+                  <mat-form-field apperance="standard">
+                    <input matInput placeholder="email" formControlName="Remail">
+                  </mat-form-field>
+                  <mat-error>
+                    <span *ngIf=" OrdersForm.get('Remail').errors?.required && OrdersForm.get('Remail').touched ">
+                      Please enter Email ID !!! </span>
+                    <span *ngIf=" OrdersForm.get('Remail').errors?.email">
+                      Enter valid mail id !!! </span>
+                  </mat-error>
+                </div>
+                <div class="form-group col-md-4">
+                  <mat-form-field apperance="standard">
+                    <input matInput placeholder="mobile" formControlName="Rmobile">
+                  </mat-form-field>
+                  <mat-error>
+                    <span *ngIf="OrdersForm.get('Rmobile').invalid && OrdersForm.get('Rmobile').dirty">
+                      Please enter valid mobile number !!!</span>
+                  </mat-error>
+                </div>
+              </div>
+              <div class="form-row align-items-center">
+                <input type="button" class="btn btn-primary button" (click)="change()" value=" Next ">
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </mat-tab>
+        <mat-tab label="Shipment Details">
+          <app-shipment [parentForm]="OrdersForm.get('shipment')"></app-shipment>
+          <br>
+        </mat-tab>
+        <mat-tab label="Lane  Info">
+          <app-lane [parentForm]="OrdersForm.get('lane')"></app-lane>
+          <br>
+          <br>
+        </mat-tab>
+      </mat-tab-group>
+      <div class="form-row">
+        <div class="  col-md-4">
+          <div *ngIf="!enablesave">
+            <button type="submit" class="btn btn-primary btn-lg" style="margin-left:290px;background-color: #5824d1;border-color: #5824d1"
+              [disabled]="OrdersForm.pristine || !OrdersForm.valid " (click)="add(OrdersForm)">Add to Cart</button>
+          </div>
+          <div *ngIf="enablesave">
+            <button type="submit" class="btn btn-primary btn-lg" style="margin-left:290px;background-color: #5824d1;border-color: #5824d1"
+              [disabled]="OrdersForm.pristine || !OrdersForm.valid" (click)="save(OrdersForm.value)">Save</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

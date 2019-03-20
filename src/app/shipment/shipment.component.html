@@ -1,0 +1,219 @@
+<!--
+<div [formGroup]="parentForm">
+  <mat-card class="card-width">
+    <mat-card-content>
+      <div class="container">
+        <h5>EQUIPMENT</h5>
+        <div class="row form-inline">
+          <div class="col-sm-6">
+            <mat-radio-group formControlName="equipment">
+              <mat-radio-button value="Dryvan">Dry Van &nbsp; </mat-radio-button>
+              <mat-radio-button value="Reefer">Reefer &nbsp;</mat-radio-button>
+              <mat-radio-button value="Flatbed">Flatbed </mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <div class="col -sm-6">
+            <mat-form-field>
+              <mat-select placeholder="Equipment size" formControlName="size">
+                <mat-option value="small">Small</mat-option>
+                <mat-option value="medium">Medium</mat-option>
+                <mat-option value="large">Large</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-error>
+              <span *ngIf=" parentForm.get('size').invalid && parentForm.get('size').touched">
+                Please select size.
+              </span>
+            </mat-error>
+          </div>
+        </div>
+        <h5>COMMODITY</h5>
+        <div class="row">
+          <div class="col-sm-6">
+            <mat-form-field>
+              <input type="text" matInput placeholder="Commodity" formControlName="commodity" [matAutocomplete]="auto">
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let commodity of commodityvalues" [value]="commodity">
+                  {{ commodity }}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row  justify-content-between">
+          <div class="col-3">
+            <mat-form-field>
+              <input matInput placeholder="TotalWeight" formControlName="wgh">
+            </mat-form-field>
+            <mat-error>
+              <span *ngIf=" parentForm.get('wgh').invalid && parentForm.get('wgh').touched">
+                Please enter weight
+              </span>
+            </mat-error>
+          </div>
+          <div class="col-3">
+            <mat-form-field>
+              <select matNativeControl required formControlName="unit">
+                <option value="LBS">LBS</option>
+                <option value="KG">KG</option>
+              </select>
+            </mat-form-field>
+            <mat-error>
+              <span *ngIf=" parentForm.get('unit').invalid && parentForm.get('unit').touched">
+                Please select unit
+              </span>
+            </mat-error>
+          </div>
+          <div class="col-3">
+            <mat-form-field>
+              <input matInput placeholder="Declarted value" formControlName="decvalue">
+            </mat-form-field>
+            <mat-error>
+              <span *ngIf="parentForm.get('decvalue').invalid && parentForm.get('decvalue').touched">
+                Field is required
+              </span>
+            </mat-error>
+          </div>
+          <div class="col-3">
+            <mat-form-field>
+              <select matNativeControl required formControlName="currency">
+                <option value="USD">USD</option>
+                <option value="EURO">EURO</option>
+              </select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">
+            <mat-checkbox formControlName="hazmat"> Hazmat </mat-checkbox>
+            <br>
+            <mat-hint> Optional </mat-hint>
+          </div>
+          <div class="col-3">
+            <mat-checkbox formControlName="temp">Temperature Controlled</mat-checkbox>
+            <br>
+            <mat-hint> Optional </mat-hint>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">
+            <input type="button" class="btn btn-primary button" (click)="change()" value=" Next ">
+          </div>
+          <div class="col-3">
+            <input type="button" class="btn btn-primary button" (click)="previous()" value=" Back ">
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div> -->
+
+
+<div [formGroup]="parentForm">
+  <mat-card>
+    <mat-card-content>
+      <h5>EQUIPMENT</h5>
+      <div class="form-row form-inline">
+        <div class="form-group col-md-5">
+          <mat-radio-group formControlName="equipment">
+            <mat-radio-button value="Dryvan">Dry Van &nbsp; </mat-radio-button>
+            <mat-radio-button value="Reefer">Reefer &nbsp;</mat-radio-button>
+            <mat-radio-button value="Flatbed">Flatbed </mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div class="form-group col-md-5">
+          <mat-form-field>
+            <mat-select placeholder="Equipment size" formControlName="size">
+              <mat-option value="small">Small</mat-option>
+              <mat-option value="medium">Medium</mat-option>
+              <mat-option value="large">Large</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-error>
+            <span *ngIf=" parentForm.get('size').invalid && parentForm.get('size').touched">
+              Please select size.
+            </span>
+          </mat-error>
+        </div>
+      </div>
+      <h5>COMMODITY</h5>
+      <div class="form-row form-inline">
+        <div class="form-group col-md-4">
+          <mat-form-field>
+            <input type="text" matInput placeholder="Commodity" formControlName="commodity" [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let commodity of commodityvalues" [value]="commodity">
+                {{ commodity }}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </div>
+        <div class="form-group col-md-4">
+          <mat-form-field>
+            <input matInput placeholder="TotalWeight" formControlName="wgh">
+          </mat-form-field>
+          <mat-error>
+            <span *ngIf=" parentForm.get('wgh').invalid && parentForm.get('wgh').touched">
+              Please enter weight
+            </span>
+          </mat-error>
+        </div>
+      </div>
+
+      <div class="form-row form-inline">
+        <div class="form-group col-md-4">
+          <mat-form-field>
+            <select matNativeControl required formControlName="unit">
+              <option value="LBS">LBS</option>
+              <option value="KG">KG</option>
+            </select>
+          </mat-form-field>
+          <mat-error>
+            <span *ngIf=" parentForm.get('unit').invalid && parentForm.get('unit').touched">
+              Please select unit
+            </span>
+          </mat-error>
+        </div>
+        <div class="form-group col-md-4">
+          <mat-form-field>
+            <input matInput placeholder="Declarted value" formControlName="decvalue">
+          </mat-form-field>
+          <mat-error>
+            <span *ngIf="parentForm.get('decvalue').invalid && parentForm.get('decvalue').touched">
+              Field is required
+            </span>
+          </mat-error>
+        </div>
+        <div class="form-group col-md-4">
+          <mat-form-field>
+            <select matNativeControl required formControlName="currency">
+              <option value="USD">USD</option>
+              <option value="EURO">EURO</option>
+            </select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="form-row form-inline">
+        <div class="form-group col-md-4">
+          <mat-checkbox formControlName="hazmat"> Hazmat </mat-checkbox>
+          <br>
+          <mat-hint> Optional </mat-hint>
+        </div>
+        <div class="form-group col-md-4">
+          <mat-checkbox formControlName="temp">Temperature Controlled</mat-checkbox>
+          <br>
+          <mat-hint> Optional </mat-hint>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-4">
+          <input type="button" class="btn btn-primary button" (click)="change()" value=" Next ">
+        </div>
+        <div class="col-md-4">
+          <input type="button" class="btn btn-primary button" (click)="previous()" value=" Back ">
+        </div>
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+</div>

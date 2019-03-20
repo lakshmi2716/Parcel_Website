@@ -1,0 +1,51 @@
+
+.bg{
+
+background-color: rgb(54, 148, 101)
+}
+
+.font-style{
+    
+    font-family: 'Josefin Slab';
+    font-weight: bold;
+    font-size: 22px;
+    
+    }
+
+  /*  .badge:after{
+        content:attr(value);
+        font-size:12px;
+        vertical-align: top;
+        border-radius:50%;
+        padding:3px;
+        position:relative;
+        left:-8px;
+        top:-10px;
+        opacity:0.9;
+        } */
+    
+        .badge-pill{
+            padding: 0 5px;
+            vertical-align: top;
+        }
+
+/* .navbar-light .navbar-nav .nav-link.active{
+
+    color: #0832ebbd !important;
+}
+
+.navbar-light .navbar-nav .nav-link{
+    color: #191a1bbd !important; 
+}
+
+.a{
+    color: beige !important;
+}  */
+
+ .nav-item{
+    color:beige !important;
+}
+
+.navbar-text{
+  color:   #33e8c7;
+}

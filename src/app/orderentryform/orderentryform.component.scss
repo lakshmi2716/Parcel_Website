@@ -1,0 +1,48 @@
+
+.formfield  {
+   display: flex;
+  flex-direction: row;
+   margin-left: 20%;
+    margin-right: 27%;
+}
+
+::ng-deep .mat-tab-label .mat-tab-label-content{
+
+    font-family:  'Lobster';
+    font-size: 25px;
+}
+
+.mat-card-title{
+    background-color: lavender;
+} 
+
+.bg {
+    display: block;
+     background-image: url("/assets/images/delivery-man-cartoon-vector.jpg")   ;
+     background-size: cover;
+     width: 100%;
+     height: 110%;
+}
+
+/* commenting out for a change    .mat-card{
+    padding: 45px;
+   }
+   .mat-tab-group{
+        margin-top: 5%;
+   } */
+
+
+   h5 {
+    
+       font-weight:bold;
+       font-family: 'Cinzel';
+       color: #2e23c3;
+
+   }
+
+ 
+   .form-style{
+       margin-left: 20%;
+       padding-right:25%;
+       padding-top: 5%;
+   }
